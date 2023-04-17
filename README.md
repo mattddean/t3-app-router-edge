@@ -1,3 +1,9 @@
+# Archived
+
+This repository has been superceeded by [a repo](https://github.com/mattddean/t3-app-router-edge-drizzle) that replaces Prisma and Kysely with Drizzle ORM.
+
+>It's okay to use Prisma with Kysely, but having separate schema management and querying complicates things a bit. For example, if you add the `@updatedAt` flag to a column in Prisma, Prisma relies on its runtime to update the column rather than the database, but when querying with Kysely, Kysely will not automatically provide the a value for that column. But if you use Drizzle for schema management, specifying `.onUpdateNow()` on a column will cause the database to update this column for you on each update.
+
 # T3 App Router (Edge)
 
 An experimental attempt at using the fantastic T3 Stack entirely on the Edge runtime, with Next.js's beta App Router.
@@ -10,8 +16,6 @@ If you encounter an error (you will), please create an Issue so that we can fix 
 
 This project is not affiliated with create-t3-app.
 
-> Check out the drizzle version [here](https://github.com/mattddean/t3-app-router-edge-drizzle)!
-
 ## Features
 
 This project represents the copy-pasting of work and ideas from a lot of really smart people. I think it's useful to see them all together in a working prototype.
@@ -21,7 +25,6 @@ This project represents the copy-pasting of work and ideas from a lot of really 
   - While create-t3-app uses Prisma, Prisma can't run on the Edge runtime.
 - Type-safe API with tRPC
   - App Router setup is copied from [here](https://github.com/trpc/next-13).
-  - The installed tRPC version is currently locked to the experimental App Router tRPC client in `./src/trpc/@trpc`, which formats the react-query query keys in a specific way that changed in later versions of tRPC. If you upgrade tRPC, hydration will stop working.
 - Owned Authentication with Auth.js
   - Kysely adapter is copied from [here](https://github.com/nextauthjs/next-auth/pull/5464).
   - create-t3-app uses NextAuth, which doesn't support the Edge runtime. This project uses NextAuth's successor, Auth.js, which does. Since Auth.js hasn't built support for Next.js yet, their [SolidStart implementation](https://github.com/nextauthjs/next-auth/tree/36ad964cf9aec4561dd4850c0f42b7889aa9a7db/packages/frameworks-solid-start/src) is copied and slightly modified.
