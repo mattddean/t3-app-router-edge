@@ -1,6 +1,6 @@
 # Archived
 
-This repository has been superceeded by [a repo](https://github.com/mattddean/t3-app-router-edge-drizzle) that replaces Prisma and Kysely with Drizzle ORM.
+This repository has been superseded by [a repo](https://github.com/mattddean/t3-app-router-edge-drizzle) that replaces Prisma and Kysely with Drizzle ORM.
 
 >It's okay to use Prisma with Kysely, but having separate schema management and querying complicates things a bit. For example, if you add the `@updatedAt` flag to a column in Prisma, Prisma relies on its runtime to update the column rather than the database, but when querying with Kysely, Kysely will not automatically provide the a value for that column. But if you use Drizzle for schema management, specifying `.onUpdateNow()` on a column will cause the database to update this column for you on each update.
 
